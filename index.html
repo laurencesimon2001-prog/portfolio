@@ -1,25 +1,52 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Laurence Simon</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
 
-<section class="hero">
-    <img src="{{ url_for('static', filename='img/profile.jpg') }}" class="profile-img">
-    <h1>Hello, I'm <span class="highlight">Laurence Simon</span></h1>
-    <p>Python Developer • Flask • MySQL • Backend Developer</p>
-</section>
+<header>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+            <a href="#">Skill</a>
+        </div>
+    </nav>
+</header>
 
-<section class="skills">
-    <h2>Skills</h2>
-    <div class="skill-list">
-        <div class="skill">Python</div>
-        <div class="skill">Flask</div>
-        <div class="skill">MySQL</div>
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div> 
-        <div class="skill">Network engineering</div>
-         <div class="skill">Hardware engineering</div>
-          <div class="skill">CCTV Installation</div>
-    </div>
-</section>
+<div class="content">
+    <section class="hero">
+        <img src="static/img/profile.jpg" class="profile-img" alt="Laurence Simon">
+        <h1>Hello, I'm <span class="highlight">Laurence Simon</span></h1>
+        <p>Python Developer • Flask • MySQL • Backend Developer</p>
+    </section>
 
-{% endblock %}
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="skill-list">
+            <div class="skill">Python</div>
+            <div class="skill">Flask</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div> 
+            <div class="skill">Network engineering</div>
+            <div class="skill">Hardware engineering</div>
+            <div class="skill">CCTV Installation</div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 My Portfolio — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
