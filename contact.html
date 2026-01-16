@@ -1,31 +1,38 @@
-{% extends "base.html" %}
-{% block content %}
-
-<section class="contact">
-    <h2>Contact Me</h2>
-
-    <!-- Flash messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, msg in messages %}
-          <p class="flash {{ category }}">{{ msg }}</p>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-
-    <form method="POST">
-        <label>Your Name</label>
-        <input type="text" name="name" placeholder="Enter your name">
-
-        <label>Your Email</label>
-        <input type="email" name="email" placeholder="Enter your email">
-
-        <label>Your Message</label>
-        <textarea name="message" placeholder="Write message here"></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Laurence Simon</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="skill.html">Skill</a>
+        </div>
+    </nav>
+</header>
+<div class="content">
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <form action="#">
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your name">
+            <label>Your Email</label>
+            <input type="email" placeholder="Enter your email">
+            <label>Your Message</label>
+            <textarea placeholder="Write message here"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</div>
+<footer><p>© 2025 My Portfolio — All Rights Reserved</p></footer>
+</body>
+</html>

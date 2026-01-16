@@ -1,16 +1,39 @@
-{% extends "base.html" %}
-{% block content %}
-
-<h2 style="text-align:center;">My Projects</h2>
-
-<div class="project-list">
-    {% for p in projects %}
-    <div class="project-card">
-        <h3>{{ p.title }}</h3>
-        <p>{{ p.description }}</p>
-        <a href="{{ p.link }}" target="_blank">View Project</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Laurence Simon</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="skill.html">Skill</a>
+        </div>
+    </nav>
+</header>
+<div class="content">
+    <h2 style="text-align:center;">My Projects</h2>
+    <div class="project-list">
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio built with HTML, CSS, and Flask.</p>
+            <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Inventory System</h3>
+            <p>A management system using Python and MySQL.</p>
+            <a href="#" target="_blank">View Project</a>
+        </div>
     </div>
-    {% endfor %}
 </div>
-
-{% endblock %}
+<footer><p>© 2025 My Portfolio — All Rights Reserved</p></footer>
+</body>
+</html>

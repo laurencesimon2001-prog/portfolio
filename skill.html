@@ -1,15 +1,32 @@
-{% extends "base.html" %}
-{% block content %}
-
-<h2 style="text-align:center;">My Skills</h2>
-
-<div class="skill-list">
-    {% for s in skills %}
-    <div class="skill-card">
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.description }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Laurence Simon</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="skill.html">Skill</a>
+        </div>
+    </nav>
+</header>
+<div class="content">
+    <h2 style="text-align:center;">My Skills</h2>
+    <div class="skill-list">
+        <div class="skill-card"><h3>Backend</h3><p>Python, Flask, MySQL</p></div>
+        <div class="skill-card"><h3>Frontend</h3><p>HTML, CSS, JavaScript</p></div>
+        <div class="skill-card"><h3>Engineering</h3><p>Network, Hardware, CCTV</p></div>
     </div>
-    {% endfor %}
 </div>
-
-{% endblock %}
+<footer><p>© 2025 My Portfolio — All Rights Reserved</p></footer>
+</body>
+</html>
