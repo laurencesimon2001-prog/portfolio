@@ -1,0 +1,719 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/*index.html*/
+/* --- Hero Section (index.html) --- */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #1f2937;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #374151;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent-indigo); 
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05) rotate(2deg); 
+    border-color: var(--accent-sky);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+}
+
+.highlight {
+    color: var(--accent-indigo);
+    position: relative;
+}
+
+/* Underline animation for the highlighted name */
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-indigo);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.hero h1:hover .highlight::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    color: var(--accent-sky);
+    font-weight: 600;
+}
+
+/* --- Skills Section (index.html) --- */
+.skills h2 {
+    /* Inherits general H2 style */
+    margin-bottom: 1.5rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill {
+    background-color: var(--card-bg);
+    color: var(--accent-sky);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid #374151;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill:hover {
+    background-color: var(--accent-indigo);
+    color: var(--text-primary);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+    border-color: var(--accent-indigo);
+}
+/* --- Global Styles & Reset --- */
+:root {
+    --bg-dark: #0d1117;
+    --card-bg: #161b22; 
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --accent-indigo: #4f46e5;
+    --accent-sky: #93c5fd;
+    --flash-success: #34d399; 
+    --flash-error: #ef4444; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark); 
+    color: var(--text-secondary);
+    min-height: 100vh;
+    padding: 0;
+}
+
+a {
+    color: var(--accent-sky);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-indigo);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #1f2937; /* Darker header background */
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-indigo);
+    letter-spacing: -0.05em;
+}
+
+.nav-links a {
+    margin-left: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--accent-sky);
+}
+
+/* Underline effect on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-indigo);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* --- Main Content Layout --- */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex-grow: 1; /* Ensures content area takes up space */
+}
+
+section {
+    padding: 2rem 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-indigo); 
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #1f2937;
+    display: inline-block;
+    width: auto;
+    margin: 0 auto 2rem;
+    display: block;
+}
+
+/* --- Flash Messages --- */
+.flash {
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid;
+    transition: opacity 0.5s ease;
+}
+
+.flash.success {
+    background-color: rgba(52, 211, 153, 0.1);
+    color: var(--flash-success);
+    border-color: var(--flash-success);
+}
+
+.flash.error, .flash.danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--flash-error);
+    border-color: var(--flash-error);
+}
+
+/* --- About & Contact (General Content) --- */
+.about p {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* --- Form Styles (Contact & Admin Login) --- */
+.contact, .login-box {
+    max-width: 450px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #374151;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--accent-sky);
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"],
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #374151;
+    border-radius: 6px;
+    background-color: #0d1117;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--accent-indigo);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent-indigo);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #6366f1; /* Lighter indigo */
+    transform: translateY(-2px);
+}
+
+
+/* --- Project & Skill Grids (Card Styles) --- */
+.project-grid, .skill-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card, .skill-card {
+    background: var(--card-bg); 
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Unique Animated Border/Glow for Cards */
+.project-card::before, .skill-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* Conic gradient using accent colors */
+    background: conic-gradient(
+        transparent, 
+        rgba(79, 70, 229, 0.6), /* Indigo */
+        transparent, 
+        rgba(236, 72, 153, 0.6) /* Pink */
+    );
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: rotate 4s linear infinite;
+}
+
+.project-card:hover::before, .skill-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.project-card > *, .skill-card > * {
+    position: relative;
+    z-index: 10;
+}
+
+.project-card:hover, .skill-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); 
+    border-color: var(--accent-indigo); 
+}
+
+.project-card h3, .skill-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-sky); 
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 0.5rem;
+}
+
+.project-card p, .skill-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+
+/* --- Admin Dashboard & Messages --- */
+/* .admin-menu {
+    text-align: center;
+    margin-top: 3rem;
+} */
+
+/* .admin-menu a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    background-color: var(--accent-indigo);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-menu a:hover {
+    background-color: #6366f1;
+    transform: translateY(-2px);
+}
+
+.msg-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+} */
+
+/* .msg-table th, .msg-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #374151;
+}
+
+.msg-table th {
+    background-color: #1f2937;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.msg-table tr:hover {
+    background-color: #1f2937;
+}
+
+.delete-btn {
+    background-color: var(--flash-error);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626; /* Darker red */
+    /* color: var(--text-primary); */
+/* }  */ 
+
+/* admin new css */
+
+/* --- Admin Dashboard Menu (Updated for Project Link) --- */
+.admin-menu {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    background: var(--card-bg); /* Dark background for the menu container */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-menu a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 0.5rem 1rem; /* Added margin-top/bottom for better spacing */
+    background-color: var(--accent-indigo);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Ensure text decoration is off */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-menu a:hover {
+    background-color: #6366f1; 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 15px rgba(79, 70, 229, 0.5); 
+}
+
+/* Ensure the Admin Dashboard H2 is centered and styled */
+.content h2[style*="text-align:center;"] {
+    /* Uses the general H2 styling but ensures central alignment */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #1f2937;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        margin-top: 1rem;
+    }
+    .nav-links a {
+        margin: 0 0.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .msg-table th, .msg-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* --- Reusing Form Styles for Add Project --- */
+
+/* The .login-box class provides the main container styling */
+.login-box {
+    max-width: 550px; 
+    margin: 0 auto;
+    background: var(--card-bg); 
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #374151;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--accent-sky);
+}
+
+form input[type="text"], 
+form textarea { 
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #374151;
+    border-radius: 6px;
+    background-color: #0d1117; 
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--accent-indigo);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 150px; 
+}
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent-indigo);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #6366f1;
+    transform: translateY(-2px);
+}
+
+
+/* --- Add Button Style (Admin Projects) --- */
+.add-btn {
+    display: inline-block;
+    background-color: var(--flash-success); 
+    color: #1f2937;
+    padding: 0.6rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:hover {
+    background-color: #10b981;
+    transform: translateY(-2px);
+    color: var(--text-primary); 
+}
+
+
+.msg-table th, .msg-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #374151; 
+}
+
+.msg-table th {
+    background-color: #1f2937;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.msg-table tr:hover {
+    background-color: #1f2937; /* Row ပေါ်တွင် hover လုပ်ပါက နောက်ခံအရောင်ပြောင်းခြင်း */
+}
+
+/* --- Specific Button Styles within the Table --- */
+
+/* Edit Button (New Style) */
+.edit-btn {
+    background-color: var(--accent-sky); /* Sky Blue for Edit action */
+    color: #1f2937; /* Dark text for contrast */
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #38bdf8; /* Lighter sky blue on hover */
+    color: var(--text-primary);
+}
+
+/* Delete Button (Reuses existing style) */
+.delete-btn {
+    background-color: var(--flash-error); /* Red color for Delete action */
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626; /* Darker red */
+    color: var(--text-primary);
+}
+
+/* Photo Upload Styles */
+.upload-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px dashed var(--accent-indigo);
+    text-align: center;
+}
+
+.upload-container input[type="file"] {
+    margin: 20px 0;
+    color: var(--text-secondary);
+}
+
+.upload-container button {
+    background-color: var(--accent-indigo);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.upload-container button:hover {
+    background-color: #6366f1;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* delete button */
+
+.delete-btn:hover {
+    background-color: #dc2626 !important;
+    transform: scale(1.05);
+    transition: 0.2s;
+}

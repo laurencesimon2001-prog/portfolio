@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Add New Skill{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h2>Add New Skill</h2>
+
+    <form method="POST" action="{{ url_for('add_skill') }}"> 
+        <label for="title">Skill Title (e.g., Python, Flask)</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <button type="submit">Add Skill</button>
+    </form>
+    
+    <a href="{{ url_for('admin_skill') }}" class="cancel-link">
+        &larr; Back to Skills List
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+<h2 style="text-align:center;">Add Project</h2>
+
+<div class="login-box">
+<form method="POST">
+    <label>Project Title</label>
+    <input type="text" name="title">
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <label>Project Link</label>
+    <input type="text" name="link" placeholder="https://github.com/...">
+
+    <button type="submit">Add Project</button>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h2 style="text-align:center;">Admin Dashboard</h2>
+
+    <div class="admin-menu">
+        <a href="/admin/messages">📩 View Messages</a>
+        <a href="/admin/projects">📁 Project</a>
+        <a href="/admin/skill">🛠️ Skill</a>
+        <a href="/admin/upload">📸 Upload Photo</a> <a href="/admin/logout">🚪 Logout</a>
+    </div>
+
+    <hr style="margin: 40px 0; border: 1px solid #374151;">
+
+    <h2 style="text-align:center;">Uploaded Gallery</h2>
+    <div class="project-grid">
+        {% for photo in photos %}
+        <div class="project-card" style="text-align: center; background: #161b22; padding: 15px; border-radius: 12px; border: 1px solid #374151;">
+            <img src="{{ url_for('static', filename='uploads/' + photo) }}" 
+                 style="width: 100%; height: auto; border-radius: 8px; display: block;">
+            
+            <p style="margin: 15px 0; font-size: 0.8rem; color: #9ca3af; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{ photo }}
+            </p>
+
+            <a href="{{ url_for('delete_photo', filename=photo) }}" 
+               style="background-color: #ef4444; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; display: inline-block; transition: 0.3s;"
+               onclick="return confirm('Are you sure you want to delete this photo?')">
+               Delete
+            </a>
+        </div>
+        {% else %}
+        <p style="text-align: center; width: 100%; color: #9ca3af;">No photos uploaded yet.</p>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock %}
