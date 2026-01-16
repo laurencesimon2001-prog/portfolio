@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+<h2 style="text-align:center;">Manage Projects</h2>
+
+<div style="text-align:center;">
+    <a href="/admin/projects/add" class="add-btn">➕ Add New Project</a>
+</div>
+
+<table class="msg-table">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>Action</th>
+    </tr>
+
+    {% for p in projects %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.description }}</td>
+        <td><a href="{{ p.link }}" target="_blank">Open</a></td>
+        <td>
+            <a href="/admin/projects/edit/{{ p.id }}" class="edit-btn">Edit</a>
+            <a href="/admin/projects/delete/{{ p.id }}" class="delete-btn">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

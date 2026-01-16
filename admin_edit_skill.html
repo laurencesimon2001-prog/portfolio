@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Edit Skill{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+<h2 style="text-align:center;">Edit Skill</h2>
+
+<div class="login-box">
+<form method="POST"> 
+    <label>Skill Title</label>
+    <input type="text" name="title" value="{{ skill.title }}" required>
+
+    <label>Description</label>
+    <textarea name="description" rows="4" required>{{ skill.description }}</textarea>
+
+    <button type="submit">Update Skill</button>
+</form>
+</div>
+
+{% endblock %}
